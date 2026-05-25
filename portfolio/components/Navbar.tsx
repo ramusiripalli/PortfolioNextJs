@@ -39,6 +39,12 @@ export default function Navbar() {
               </a>
             </li>
 
+             <li>
+              <a href="#experience" className="transition hover:text-cyan-300">
+                Experience
+              </a>
+            </li>
+
             <li>
               <a href="#projects" className="transition hover:text-cyan-300">
                 Projects
