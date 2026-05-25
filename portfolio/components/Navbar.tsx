@@ -60,9 +60,13 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop Resume Button */}
-          <button className="hidden md:block rounded-xl bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-black shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300">
-            Resume
-          </button>
+          <a
+          href="https://drive.google.com/file/d/1YAN-ImP4zhP7X_WfnvwXo7sFDNRv5tHR/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:block rounded-xl bg-cyan-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300">
+          Resume
+          </a>
 
           {/* Mobile Menu Button */}
           <button
