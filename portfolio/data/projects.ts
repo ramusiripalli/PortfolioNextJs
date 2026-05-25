@@ -25,9 +25,10 @@ export const PROJECTS = [
     title: "RAM MUSIC PLAYER",
     image: "/projects/project2.png",
     description:
-      `This full-stack Music Player application delivers a modern and immersive audio streaming experience with a sleek, responsive interface built for seamless usability across devices. Developed using the MERN stack with TypeScript, the platform integrates secure Google authentication through Clerk for smooth and protected user access. Media assets, including songs and album covers, are efficiently managed using Cloudinary, ensuring fast and scalable content delivery. The application also features 
-       an advanced Admin Dashboard that allows administrators to manage songs, albums, and monitor platform analytics with ease. Hosted on Render, the project showcases scalable architecture,
-       secure authentication, and user-focused design combined into a powerful music streaming solution.`,
+      `Built a full-stack Music Player application using the MERN stack and TypeScript with a modern, responsive UI.
+Integrated secure Google authentication using Clerk and optimized media management with Cloudinary.
+Developed an Admin Dashboard for managing songs, albums, and platform analytics efficiently.
+Deployed on Render with scalable architecture, secure authentication, and high-performance streaming features.`,
     technologies: [
       "MongoDB",
       "Express.js",
@@ -35,7 +36,8 @@ export const PROJECTS = [
       "Node.js",
       "Tailwind CSS",
       "Clerk",
-      "shadcn/ui"
+      "shadcn/ui",
+      "Typescript"
     ],
     link: "https://music-ramu.onrender.com/",
     gitHubLink: "https://github.com/ramusiripalli/MusicPlayer_RamuSiripalli",

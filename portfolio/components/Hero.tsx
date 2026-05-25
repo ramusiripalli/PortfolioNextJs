@@ -140,19 +140,6 @@ export default function Hero() {
               </span>
             </a>
 
-            {/* Contact */}
-            <a
-              href="mailto:ramusiripalli2425@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/5 px-5 py-3 backdrop-blur-xl transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-lg hover:shadow-cyan-400/20"
-            >
-              <MailIcon className="h-5 w-5 text-cyan-300 transition group-hover:scale-110" />
-
-              <span className="text-sm font-medium text-gray-200">
-                Contact
-              </span>
-            </a>
           </motion.div>
         </motion.div>
 
