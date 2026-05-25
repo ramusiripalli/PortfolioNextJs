@@ -1,159 +1,170 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+    <section className="relative overflow-hidden px-6 pt-36 pb-20 md:min-h-screen flex items-center">
 
-     {/* Background Glow Effects */}
-<div className="absolute inset-0 overflow-hidden -z-10">
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
 
-  {/* Top Left Glow */}
-  <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-cyan-400/30 rounded-full blur-[140px]" />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -top-40 -left-40 w-[38rem] h-[38rem] rounded-full bg-cyan-400/20 blur-3xl"
+        />
 
-  {/* Bottom Right Glow */}
-  <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-teal-400/25 rounded-full blur-[140px]" />
+        <div className="absolute -bottom-40 -right-40 w-[38rem] h-[38rem] rounded-full bg-teal-400/20 blur-3xl" />
 
-  {/* Center Glow */}
-  <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 bg-cyan-300/10 rounded-full blur-[120px]" />
+      </div>
 
-</div>
+      <div className="mx-auto grid max-w-7xl items-center gap-20 md:grid-cols-2">
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-
-        {/* Left Content */}
+        {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-cyan-300 text-lg mb-4 tracking-widest uppercase"
-          >
-            Software Engineer
-          </motion.p>
+          {/* Typing Animation */}
+          <div className="mb-6 text-sm md:text-lg uppercase tracking-[0.3em] text-cyan-300">
 
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-5xl md:text-7xl font-extrabold leading-tight"
-          >
+            <TypeAnimation
+              sequence={[
+                "MERN Stack Developer",
+                2000,
+                "Problem Solver",
+                2000,
+                "Frontend Engineer",
+                2000,
+                "DSA Enthusiast",
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+            />
+
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-tight tracking-tight">
+
             Hi, I&apos;m{" "}
+
             <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
               Ramu
             </span>
-          </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="mt-8 text-lg text-white leading-relaxed max-w-xl"
-          >
-             MERN Stack Developer passionate about building modern,
+          </h1>
+
+          {/* Description */}
+          <p className="mt-8 max-w-xl text-[1rem] md:text-[1.1rem] leading-relaxed text-gray-300/80">
+
+            MERN Stack Developer passionate about building modern,
             scalable, and user-centric web applications. I love solving
             complex DSA problems, crafting smooth interactive interfaces,
             and creating high-performance digital experiences with clean
             and efficient code.
-          </motion.p>
+
+          </p>
 
           {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-            className="flex flex-wrap gap-5 mt-10"
-          >
+          <div className="mt-10 flex flex-col sm:flex-row gap-5">
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="rounded-2xl bg-cyan-400 px-8 py-4 text-black font-semibold shadow-lg shadow-cyan-400/30 transition hover:bg-cyan-300"
-            >
+            <button className="rounded-2xl bg-cyan-400 px-8 py-4 font-semibold text-black shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300">
               View Projects
-            </motion.button>
+            </button>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="rounded-2xl border border-cyan-400/20 bg-cyan-400/5 backdrop-blur-md px-8 py-4 text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/10"
-            >
+            <button className="rounded-2xl border border-cyan-400/20 bg-cyan-400/5 px-8 py-4 font-medium text-cyan-300 backdrop-blur-xl transition hover:border-cyan-300 hover:bg-cyan-400/10">
               Download Resume
-            </motion.button>
+            </button>
 
-          </motion.div>
+          </div>
 
         </motion.div>
 
-        {/* Right Side Visual */}
+        {/* RIGHT SIDE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="flex justify-center relative"
+          className="relative flex justify-center"
         >
 
-          {/* Glow Orb */}
-          <div className="absolute w-[350px] h-[350px] bg-cyan-400/20 rounded-full blur-3xl"></div>
+          {/* Main Glow */}
+          <div className="absolute w-[24rem] h-[24rem] md:w-[30rem] md:h-[30rem] rounded-full bg-cyan-400/20 blur-3xl" />
 
-          {/* Glass Card */}
+          {/* Floating Card */}
           <motion.div
             animate={{
-              y: [0, -15, 0],
+              y: [0, -20, 0],
             }}
             transition={{
-              duration: 5,
+              duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative w-[320px] h-[380px] rounded-[32px] border border-cyan-400/20 bg-white/5 backdrop-blur-xl shadow-[0_0_50px_rgba(34,211,238,0.15)] overflow-hidden"
+            className="relative w-full max-w-[340px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.12)]"
           >
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10" />
 
-            {/* Fake Code Content */}
+            {/* Top Shine */}
+            <div className="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
+
+            {/* Content */}
             <div className="relative z-10 p-8">
 
-              <div className="flex gap-2 mb-8">
-                <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+              {/* Dots */}
+              <div className="mb-10 flex gap-3">
+                <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
+                <div className="h-3 w-3 rounded-full bg-green-400"></div>
               </div>
 
-            <div className="space-y-4 text-sm font-mono">
+              {/* Fake Code */}
+              <div className="space-y-5 font-mono text-sm">
 
-  <p className="text-cyan-300">
-    {"const developer = {"}
-  </p>
+                <p className="text-cyan-300">
+                  {"const developer = {"}
+                </p>
 
-  <p className="text-gray-300 ml-4">
-    {'name: "Ramu",'}
-  </p>
+                <p className="ml-4 text-gray-300">
+                  {'name: "Ramu Siripalli",'}
+                </p>
 
-  <p className="text-gray-300 ml-4">
-    {'role: "Software Engineer",'}
-  </p>
+                <p className="ml-4 text-gray-300">
+                  {'role: "MERN Stack Developer",'}
+                </p>
 
-  <p className="text-gray-300 ml-4">
-    {'skills: ["React", "Next.js", "DSA"],'}
-  </p>
+                <p className="ml-4 text-gray-300">
+                  {'skills: ["MongoDB", "Express",'}
+                </p>
 
-  <p className="text-gray-300 ml-4">
-    {'passion: "Building Modern UI"'}
-  </p>
+                <p className="ml-4 text-gray-300">
+                  {'"React", "Node.js", "DSA"],'}
+                </p>
 
-  <p className="text-cyan-300">
-    {"}"}
-  </p>
+                <p className="ml-4 text-gray-300">
+                  {'passion: "Building Premium UI"'}
+                </p>
 
-</div>
+                <p className="text-cyan-300">
+                  {"}"}
+                </p>
+
+              </div>
 
             </div>
 
