@@ -4,7 +4,7 @@ export const PROJECTS = [
     image: "/projects/projectt1.png",
     description:
       `FelixJobs is a modern job aggregation platform that brings openings from multiple portals into one seamless experience. 
-      Users can explore opportunities, filter jobs, and apply directly through original listings without switching between platforms. The application includes real-time Telegram and WhatsApp job alerts, secure authentication, and dedicated dashboards for users and admins. 
+      Users can explore opportunities, filter jobs, and apply directly through original listings without switching between platforms. The application includes real-time Telegram job alerts, secure authentication, and dedicated dashboards for users and admins. 
       Designed with a responsive and interactive interface, FelixJobs makes job discovery faster, smarter, and hassle-free.`,
     technologies: [
       "React.js",

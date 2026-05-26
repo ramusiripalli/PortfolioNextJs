@@ -3,210 +3,377 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PROJECTS } from "@/data/projects";
-import { FaGithub } from "react-icons/fa";
-import { FaLink } from "react-icons/fa6";
+
+import {
+  FaGithub,
+  FaArrowRight,
+} from "react-icons/fa";
+
+import {
+  HiOutlineExternalLink,
+} from "react-icons/hi";
+
+// ─────────────────────────────────────────────────────────────
+// TYPES
+// ─────────────────────────────────────────────────────────────
+
+type Project = {
+  title: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  link: string;
+  gitHubLink: string;
+};
+
+// ─────────────────────────────────────────────────────────────
+// FLOATING ORBS
+// ─────────────────────────────────────────────────────────────
+
+const ORBS = Array.from({ length: 7 }, (_, i) => ({
+  id: i,
+  size: 260 + i * 60,
+  left: (i * 17) % 100,
+  top: (i * 13) % 100,
+  duration: 14 + i * 2,
+}));
+
+// ─────────────────────────────────────────────────────────────
+// AURORA BACKGROUND
+// ─────────────────────────────────────────────────────────────
+
+function AuroraBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* ORBS */}
+      {ORBS.map((orb) => (
+        <motion.div
+          key={orb.id}
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: orb.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute rounded-full"
+          style={{
+            width: orb.size,
+            height: orb.size,
+            left: `${orb.left}%`,
+            top: `${orb.top}%`,
+            background:
+              "radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%)",
+            filter: "blur(90px)",
+          }}
+        />
+      ))}
+
+      {/* GRID */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+          backgroundSize: "70px 70px",
+        }}
+      />
+
+      {/* RADIAL LIGHT */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.10),transparent_40%)]" />
+
+      {/* NOISE */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
+        }}
+      />
+
+      {/* VIGNETTE */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.9)_100%)]" />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// PROJECT CARD
+// ─────────────────────────────────────────────────────────────
+
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 80,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 1,
+        delay: index * 0.15,
+      }}
+      viewport={{ once: true }}
+      className={`grid items-center gap-20 lg:grid-cols-2 ${
+        index % 2 !== 0 ? "lg:grid-flow-dense" : ""
+      }`}
+    >
+      {/* IMAGE SIDE */}
+      <motion.div
+        whileHover={{
+          rotateY: 8,
+          rotateX: 4,
+          scale: 1.03,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 180,
+          damping: 18,
+        }}
+        className={`relative ${
+          index % 2 !== 0 ? "lg:col-start-2" : ""
+        }`}
+      >
+        {/* GLOW */}
+        <div className="absolute -inset-5 rounded-[40px] bg-gradient-to-r from-cyan-400/30 to-teal-400/30 blur-3xl opacity-60" />
+
+        {/* ROTATING BORDER */}
+        <motion.div
+          animate={{
+            rotate: 360,
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-r from-cyan-400/30 via-sky-400/20 to-teal-400/30"
+        />
+
+        {/* MAIN CARD */}
+        <div className="group relative overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.12)]">
+          {/* SHINE */}
+          <motion.div
+            animate={{
+              x: ["-100%", "200%"],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute inset-0 z-20 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          />
+
+          {/* OVERLAY */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#020617]/80 via-transparent to-transparent" />
+
+          {/* IMAGE */}
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={1200}
+            height={800}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          />
+
+          {/* LABEL */}
+          <div className="absolute left-6 top-6 z-30 rounded-full border border-cyan-400/20 bg-[#020617]/70 px-5 py-2 backdrop-blur-xl">
+            <span className="text-xs font-bold uppercase tracking-[0.35em] text-cyan-300">
+              Featured Project
+            </span>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* CONTENT SIDE */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        viewport={{ once: true }}
+        className={`${
+          index % 2 !== 0
+            ? "lg:col-start-1 lg:row-start-1"
+            : ""
+        }`}
+      >
+        {/* TOP LABEL */}
+        <p className="mb-5 text-sm font-bold uppercase tracking-[0.45em] text-cyan-300">
+          Full Stack Experience
+        </p>
+
+        {/* TITLE */}
+        <h3 className="mb-8 text-4xl font-black leading-tight text-white md:text-6xl">
+          {project.title}
+        </h3>
+
+        {/* DESCRIPTION */}
+        <div className="relative mb-10 overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl">
+          {/* SIDE LINE */}
+          <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-cyan-400 to-teal-400" />
+
+          {/* INNER GLOW */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/[0.04] via-transparent to-teal-400/[0.04]" />
+
+          <p className="relative z-10 text-lg leading-relaxed text-white/65">
+            {project.description}
+          </p>
+        </div>
+
+        {/* TECHNOLOGIES */}
+        <div className="mb-12 flex flex-wrap gap-4">
+          {project.technologies.map((tech, techIndex) => (
+            <motion.div
+              key={techIndex}
+              whileHover={{
+                y: -5,
+                scale: 1.05,
+              }}
+              className="rounded-full border border-cyan-400/15 bg-white/[0.04] px-5 py-3 backdrop-blur-xl"
+            >
+              <span className="text-md font-medium text-cyan-400">
+                {tech}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* BUTTONS */}
+        <div className="flex flex-wrap gap-5">
+          {/* LIVE DEMO */}
+          <motion.a
+            whileHover={{
+              scale: 1.04,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-400 to-sky-400 px-8 py-4 font-bold text-[#020619] shadow-[0_0_50px_rgba(6,182,212,0.35)]"
+          >
+            <HiOutlineExternalLink className="text-lg transition duration-300 group-hover:rotate-12" />
+
+            Live Demo
+
+            <FaArrowRight className="transition duration-300 group-hover:translate-x-1" />
+          </motion.a>
+
+          {/* GITHUB */}
+          <motion.a
+            whileHover={{
+              scale: 1.04,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            href={project.gitHubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/[0.04] px-8 py-4 text-cyan-200 backdrop-blur-xl transition hover:border-cyan-300 hover:bg-cyan-400/[0.06]"
+          >
+            <FaGithub className="text-lg transition duration-300 group-hover:rotate-12" />
+
+            GitHub
+          </motion.a>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// MAIN COMPONENT
+// ─────────────────────────────────────────────────────────────
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden px-6 py-32"
+      className="relative overflow-hidden px-6 py-40"
     >
-
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-
-        <div className="absolute top-20 left-10 w-[35rem] h-[35rem] rounded-full bg-cyan-400/10 blur-3xl" />
-
-        <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] rounded-full bg-teal-400/10 blur-3xl" />
-
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-[#020617]">
+        <AuroraBackground />
       </div>
 
-      <div className="mx-auto max-w-7xl">
-
-        {/* Heading */}
+      {/* CONTENT */}
+      <div className="relative mx-auto max-w-7xl">
+        {/* HEADING */}
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
           viewport={{ once: true }}
-          className="mb-28"
+          className="mb-36 text-center"
         >
+          {/* TOP TEXT */}
+          <div className="mb-8 flex items-center justify-center gap-4">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent to-cyan-400" />
 
-          <p className="mb-6 text-sm uppercase tracking-[0.4em] text-cyan-300">
-            Projects
-          </p>
-
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-tight">
-
-            Premium
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
-              {" "}Creative Builds
+            <span className="text-xs font-bold uppercase tracking-[0.5em] text-cyan-300">
+              Premium Projects
             </span>
 
+            <div className="h-px w-20 bg-gradient-to-l from-transparent to-cyan-400" />
+          </div>
+
+          {/* MAIN HEADING */}
+          <h2 className="text-5xl font-black leading-none tracking-tight text-white md:text-7xl">
+            Modern
+            <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+              Creative Builds
+            </span>
           </h2>
 
+          {/* DESCRIPTION */}
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-white/55">
+            Crafting immersive digital products with premium UI,
+            scalable architecture, and seamless user experiences.
+          </p>
         </motion.div>
 
-        {/* Projects */}
-        <div className="space-y-32">
-
+        {/* PROJECT LIST */}
+        <div className="space-y-44">
           {PROJECTS.map((project, index) => (
-            <motion.div
+            <ProjectCard
               key={index}
-              initial={{
-                opacity: 0,
-                y: 120,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 1,
-                delay: index * 0.2,
-              }}
-              viewport={{ once: true }}
-              className={`grid items-center gap-16 md:grid-cols-2 ${
-                index % 2 !== 0 ? "md:grid-flow-dense" : ""
-              }`}
-            >
-
-              {/* IMAGE SIDE */}
-              <motion.div
-                whileHover={{
-                  rotateY: 8,
-                  rotateX: 4,
-                  scale: 1.03,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 15,
-                }}
-                className={`relative perspective-[1000px] ${
-                  index % 2 !== 0 ? "md:col-start-2" : ""
-                }`}
-              >
-
-                {/* Glow */}
-                <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-cyan-400/20 to-teal-400/20 blur-2xl opacity-60" />
-
-                {/* Glass Card */}
-                <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.10)]">
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10" />
-
-                  {/* Shine */}
-                  <div className="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
-
-                  {/* Image */}
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={1000}
-                    height={700}
-                    className="h-full w-full object-cover transition duration-700 hover:scale-105"
-                  />
-
-                </div>
-
-              </motion.div>
-
-              {/* CONTENT SIDE */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className={`${
-                  index % 2 !== 0 ? "md:col-start-1 md:row-start-1" : ""
-                }`}
-              >
-
-                <p className="mb-4 text-sm uppercase tracking-[0.3em] text-cyan-300">
-                  Mern Stack Application
-                </p>
-
-                <h3 className="mb-8 text-4xl md:text-5xl font-bold leading-tight text-white">
-                  {project.title}
-                </h3>
-
-                {/* Description Card */}
-                <div className="mb-8 rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(34,211,238,0.06)]">
-
-                  <p className="leading-relaxed text-gray-300/80 text-lg">
-                    {project.description}
-                  </p>
-
-                </div>
-
-                {/* Technologies */}
-                <div className="mb-10 flex flex-wrap gap-4">
-
-                  {project.technologies.map((tech, techIndex) => (
-                    <motion.span
-                      key={techIndex}
-                      whileHover={{
-                        scale: 1.20,
-                      }}
-                      className="rounded-full border border-cyan-400/20 bg-cyan-400/5 px-5 py-3 text-sm font-medium text-cyan-300 backdrop-blur-xl"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-
-                </div>
-
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-5">
-
-                  <motion.a
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    href={project.link}
-                    target="_blank"
-                    className="flex items-center gap-3 rounded-2xl bg-cyan-400 px-8 py-4 font-semibold text-white shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300"
-                  >
-
-                    <FaLink />
-                    Live Demo
-
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    href={project.gitHubLink}
-                    target="_blank"
-                    className="flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-cyan-400/5 px-8 py-4 text-cyan-300 backdrop-blur-xl transition hover:border-cyan-300 hover:bg-cyan-400/10"
-                  >
-
-                    <FaGithub />
-                    GitHub
-
-                  </motion.a>
-
-                </div>
-
-              </motion.div>
-
-            </motion.div>
+              project={project}
+              index={index}
+            />
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }
