@@ -16,7 +16,7 @@ const experiences = [
   {
     company: "Alepo Technology Solutions",
     role: "Junior Software Engineer",
-    period: "April 2022 – March 2023",
+    period: "Apr 2022 – Mar 2023",
     type: "Full-time",
     points: [
       "Developed scalable telecom web applications using React.js, Node.js, MongoDB, and Tailwind CSS.",
@@ -114,10 +114,10 @@ function PremiumBackground() {
             repeat: Infinity,
             delay: i * 0.2,
           }}
-          className="absolute rounded-full bg-cyan-300/30"
+          className="absolute rounded-full bg-pink-400 dark:bg-cyan-300"
           style={{
-            width: 3 + (i % 4),
-            height: 3 + (i % 4),
+            width: 6 + (i % 4),
+            height: 6 + (i % 4),
             left: `${(i * 13) % 100}%`,
             top: `${(i * 17) % 100}%`,
             boxShadow: "0 0 12px rgba(34,211,238,0.5)",
@@ -127,7 +127,7 @@ function PremiumBackground() {
 
       {/* Grid */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
@@ -148,7 +148,7 @@ function PremiumBackground() {
       />
 
       {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.92)_100%)]" />
+      <div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.92)_100%)]" />
     </div>
   );
 }
@@ -189,7 +189,7 @@ function ExperienceCard({
       <div className="absolute left-1/2 top-0 hidden h-full w-[2px] -translate-x-1/2 bg-gradient-to-b from-cyan-400/10 via-cyan-400 to-cyan-400/10 lg:block" />
 
       {/* TIMELINE DOT */}
-      <div className="absolute left-1/2 top-10 hidden h-5 w-5 -translate-x-1/2 rounded-full border-4 border-[#020617] bg-cyan-400 shadow-[0_0_25px_#22d3ee] lg:block" />
+      <div className="absolute left-1/2 top-10 hidden h-5 w-5 -translate-x-1/2 rounded-full border-4 border-slate-50 dark:border-[#020617] bg-cyan-400 shadow-[0_0_25px_#22d3ee] lg:block" />
 
       {/* CARD WRAPPER */}
       <motion.div
@@ -220,16 +220,15 @@ function ExperienceCard({
           className="absolute z-30 hidden lg:block"
         >
           <div className="relative">
-            {/* Glow */}
             <div className="absolute inset-0 rounded-full bg-cyan-400 blur-xl opacity-80" />
 
-            {/* Arrow */}
-            <ChevronRight className="relative h-8 w-8 text-cyan-300 drop-shadow-[0_0_12px_#22d3ee]" />
+            <ChevronRight className="relative h-8 w-8 text-cyan-400 dark:text-cyan-300 drop-shadow-[0_0_12px_#22d3ee]" />
           </div>
         </motion.div>
 
         {/* MAIN CARD */}
-        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#07111f]/80 p-8 backdrop-blur-2xl shadow-[0_0_60px_rgba(34,211,238,0.08)]">
+        <div className="relative overflow-hidden rounded-[32px] border border-slate-900 dark:border-white/10 bg-white/90 dark:bg-[#07111f]/80 p-8 backdrop-blur-2xl shadow-[0_8px_40px_rgba(15,23,42,0.08)] dark:shadow-[0_0_60px_rgba(34,211,238,0.08)] transition-all duration-500">
+          
           {/* MOVING LIGHT */}
           <motion.div
             animate={{
@@ -251,14 +250,17 @@ function ExperienceCard({
 
           {/* CONTENT */}
           <div className="relative z-20">
+            
             {/* HEADER */}
             <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+              
               <div>
                 {/* TYPE BADGE */}
-                <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 backdrop-blur-xl">
-                  <BriefcaseBusiness className="h-4 w-4 text-cyan-300" />
+                <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-100 dark:bg-cyan-400/10 px-4 py-2 backdrop-blur-xl">
+                  
+                  <BriefcaseBusiness className="h-4 w-4 text-cyan-600 dark:text-cyan-300" />
 
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-900 dark:text-cyan-300">
                     {exp.type}
                   </span>
                 </div>
@@ -269,13 +271,13 @@ function ExperienceCard({
                 </h3>
 
                 {/* COMPANY */}
-                <p className="mt-3 text-lg font-medium text-cyan-300">
+                <p className="mt-3 text-lg font-medium text-cyan-600 dark:text-cyan-300">
                   {exp.company}
                 </p>
               </div>
 
               {/* PERIOD */}
-              <span className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm tracking-[0.25em] text-slate-900 dark:text-white/50 backdrop-blur-xl">
+              <span className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.04] px-5 py-3 text-sm tracking-[0.25em] text-slate-600 dark:text-white/50 backdrop-blur-xl">
                 {exp.period}
               </span>
             </div>
@@ -285,7 +287,7 @@ function ExperienceCard({
               {exp.points.map((point, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-4 text-[15px] leading-8 text-slate-900 dark:text-white/60"
+                  className="flex items-start gap-4 text-[15px] leading-8 text-slate-600 dark:text-white/60"
                 >
                   <span className="mt-3 h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee]" />
 
@@ -311,12 +313,13 @@ export default function Experience() {
       className="relative overflow-hidden px-6 py-40"
     >
       {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-[#020617]">
+      <div className="absolute inset-0 bg-slate-50 dark:bg-[#020617] transition-colors duration-500">
         <PremiumBackground />
       </div>
 
       {/* CONTENT */}
       <div className="relative mx-auto max-w-7xl">
+        
         {/* HEADING */}
         <motion.div
           initial={{
@@ -337,7 +340,7 @@ export default function Experience() {
           <div className="mb-8 flex items-center justify-center gap-4">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-cyan-400" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.5em] text-cyan-300">
+            <span className="text-xs font-bold uppercase tracking-[0.5em] text-cyan-500 dark:text-cyan-300">
               My Journey
             </span>
 
@@ -345,15 +348,16 @@ export default function Experience() {
           </div>
 
           {/* TITLE */}
-          <h2 className="text-6xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-8xl">
+          <h2 className="text-4xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-6xl">
             Work
-            <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+
+            <span className="block bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-900 dark:text-white/55">
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-white/55">
             Building scalable applications, crafting premium user
             experiences, and solving real-world engineering problems.
           </p>
@@ -387,7 +391,8 @@ export default function Experience() {
           className="relative mt-40"
         >
           {/* CARD */}
-          <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#07111f]/80 p-10 backdrop-blur-2xl">
+          <div className="relative overflow-hidden rounded-[36px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-[#07111f]/80 p-10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(15,23,42,0.08)] dark:shadow-none transition-all duration-500">
+            
             {/* MOVING LIGHT */}
             <motion.div
               animate={{
@@ -408,13 +413,15 @@ export default function Experience() {
             <div className="absolute left-0 top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-violet-300/60 to-transparent" />
 
             <div className="relative z-20 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              
               {/* LEFT */}
               <div>
                 {/* BADGE */}
-                <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-violet-400/20 bg-violet-500/10 px-5 py-2">
-                  <GraduationCap className="h-4 w-4 text-violet-300" />
+                <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-violet-400/20 bg-violet-100 dark:bg-violet-500/10 px-5 py-2">
+                  
+                  <GraduationCap className="h-4 w-4 text-violet-600 dark:text-violet-300" />
 
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-300">
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-violet-600 dark:text-violet-300">
                     Education
                   </span>
                 </div>
@@ -425,13 +432,13 @@ export default function Experience() {
                 </h3>
 
                 {/* COLLEGE */}
-                <p className="mt-4 text-lg text-slate-900 dark:text-white/60">
+                <p className="mt-4 text-lg text-slate-600 dark:text-white/60">
                   Lovely Professional University
                 </p>
               </div>
 
               {/* YEAR */}
-              <div className="rounded-2xl border border-violet-400/20 bg-violet-500/10 px-8 py-5 text-sm font-semibold tracking-[0.3em] text-violet-300 backdrop-blur-xl">
+              <div className="rounded-2xl border border-violet-400/20 bg-violet-100 dark:bg-violet-500/10 px-8 py-5 text-sm font-semibold tracking-[0.3em] text-violet-600 dark:text-violet-300 backdrop-blur-xl">
                 2015 – 2019
               </div>
             </div>
