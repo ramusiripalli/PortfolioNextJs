@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
 
 import {
   FaGithub,
@@ -16,23 +15,22 @@ import {
 
 export default function Contact() {
 
-  /* ================= PREMIUM STARS ================= */
+  /* ================= SAFE STARS ================= */
 
- const stars = useMemo(() => {
-  return Array.from({ length: 90 }).map(() => ({
-    top: Math.random() * 100,
-    left: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    opacity: Math.random() * 0.8 + 0.2,
-    duration: Math.random() * 3 + 2,
+  const stars = Array.from({ length: 90 }).map((_, i) => ({
+    top: (i * 13) % 100,
+    left: (i * 29) % 100,
+    size: (i % 3) + 1,
+    opacity: 0.4 + ((i % 5) * 0.1),
+    duration: 2 + (i % 4),
   }));
-}, []);
 
   return (
     <section
       id="contact"
       className="relative overflow-hidden px-6 py-36"
     >
+
       {/* ================= BACKGROUND ================= */}
 
       <div className="absolute inset-0 -z-30 bg-[#020617]" />
@@ -48,6 +46,7 @@ export default function Contact() {
       <div className="absolute right-0 top-1/2 -z-20 h-[400px] w-[400px] rounded-full bg-sky-400/10 blur-[120px]" />
 
       {/* Floating Orbs */}
+
       <motion.div
         animate={{
           y: [0, -30, 0],
@@ -110,10 +109,7 @@ export default function Contact() {
         {/* ================= HEADING ================= */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
+          initial={false}
           whileInView={{
             opacity: 1,
             y: 0,
@@ -124,6 +120,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mb-24 text-center"
         >
+
           <p className="mb-6 text-sm uppercase tracking-[0.5em] text-cyan-300">
             Contact
           </p>
@@ -139,15 +136,13 @@ export default function Contact() {
             Open to internships, freelance opportunities,
             collaborations, and exciting software engineering projects.
           </p>
+
         </motion.div>
 
         {/* ================= MAIN CARD ================= */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
+          initial={false}
           whileInView={{
             opacity: 1,
             y: 0,
@@ -166,6 +161,7 @@ export default function Contact() {
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10 opacity-80" />
 
           {/* Moving Light */}
+
           <motion.div
             animate={{
               x: ["-20%", "120%"],
@@ -195,9 +191,11 @@ export default function Contact() {
               </p>
 
               {/* Social Icons */}
+
               <div className="flex flex-wrap gap-5">
 
                 {/* GitHub */}
+
                 <motion.a
                   whileHover={{
                     y: -6,
@@ -211,6 +209,7 @@ export default function Contact() {
                 </motion.a>
 
                 {/* LinkedIn */}
+
                 <motion.a
                   whileHover={{
                     y: -6,
@@ -222,6 +221,7 @@ export default function Contact() {
                 >
                   <FaLinkedin className="transition duration-300 group-hover:rotate-12" />
                 </motion.a>
+
               </div>
             </div>
 
@@ -250,12 +250,14 @@ export default function Contact() {
                 />
 
                 {/* Availability */}
+
                 <motion.div
                   whileHover={{
                     y: -5,
                   }}
                   className="rounded-3xl border border-cyan-400/20 bg-cyan-400/5 p-6 backdrop-blur-2xl transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]"
                 >
+
                   <div className="mb-3 flex items-center gap-3">
 
                     <div className="h-3 w-3 animate-pulse rounded-full bg-green-400" />
@@ -263,15 +265,18 @@ export default function Contact() {
                     <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">
                       Availability
                     </p>
+
                   </div>
 
                   <h3 className="text-xl text-white">
-                    Open for Freelancing & Full Time Oppurtunities
+                    Open for Freelancing & Full Time Opportunities
                   </h3>
+
                 </motion.div>
 
               </div>
             </div>
+
           </div>
         </motion.div>
       </div>
@@ -303,6 +308,7 @@ function ContactCard({
       </div>
 
       <div>
+
         <p className="mb-2 text-sm uppercase tracking-[0.2em] text-cyan-300">
           {title}
         </p>
@@ -310,6 +316,7 @@ function ContactCard({
         <h3 className="break-all text-xl text-white">
           {value}
         </h3>
+
       </div>
 
     </motion.div>
