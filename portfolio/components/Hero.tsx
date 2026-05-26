@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 import {
-   GitBranch,
+  GitBranch,
   Link,
   FileText,
   Code2,
@@ -35,7 +35,7 @@ function StarsBackground() {
       {STARS.map((star) => (
         <motion.div
           key={star.id}
-          className="absolute rounded-full bg-white"
+          className="absolute rounded-full bg-black dark:bg-white"
           style={{
             width: star.size + 2,
             height: star.size + 2,
@@ -73,10 +73,11 @@ export default function Hero() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-32 pb-24"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-32 pb-24 transition-colors duration-500"
     >
       {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-[#020617]">
+      <div className="absolute inset-0 bg-slate-50 dark:bg-[#020617] transition-colors duration-500">
+        
         {/* Stars */}
         <StarsBackground />
 
@@ -134,6 +135,7 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative mx-auto grid max-w-7xl items-center gap-24 lg:grid-cols-2">
+        
         {/* LEFT SIDE */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -147,17 +149,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-5 py-2 backdrop-blur-xl"
+            className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-green-400 dark:bg-cyan-400/5 px-5 py-2 backdrop-blur-xl"
           >
-            <Sparkles className="h-4 w-4 text-cyan-300" />
+            <Sparkles className="h-4 w-4 text-pink-500 dark:text-cyan-300" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-black dark:text-cyan-300">
               Available For Work
             </span>
           </motion.div>
 
           {/* Typing Animation */}
-          <div className="mb-8 text-sm uppercase tracking-[0.4em] text-cyan-300 md:text-base">
+          <div className="mb-8 text-sm uppercase tracking-[0.4em] text-black dark:text-cyan-300 md:text-base">
             <TypeAnimation
               sequence={[
                 "MERN Stack Developer",
@@ -178,15 +180,15 @@ export default function Hero() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl md:text-8xl">
+          <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-8xl">
             Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-500 to-teal-400 bg-clip-text text-transparent">
               Ramu
             </span>
           </h1>
 
           {/* Description */}
-          <p className="mt-10 max-w-2xl text-lg leading-relaxed text-white/65 md:text-xl">
+          <p className="mt-10 max-w-2xl text-lg leading-relaxed text-slate-700 dark:text-white/65 md:text-xl">
             Full Stack MERN Developer passionate about building
             scalable, modern, and high-performance web applications
             with exceptional UI/UX experiences.
@@ -207,11 +209,11 @@ export default function Hero() {
               href="https://www.linkedin.com/in/ramu-siripalli-3711bb119/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
-              <Link className="h-5 w-5 text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
+              <Link className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
-              <span className="font-medium text-white/80">
+              <span className="font-medium text-slate-900 dark:text-white/80">
                 LinkedIn
               </span>
             </a>
@@ -221,11 +223,11 @@ export default function Hero() {
               href="https://github.com/ramusiripalli"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
-              <GitBranch className="h-5 w-5 text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
+              <GitBranch className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
-              <span className="font-medium text-white/80">
+              <span className="font-medium text-slate-700 dark:text-white/80">
                 GitHub
               </span>
             </a>
@@ -235,11 +237,11 @@ export default function Hero() {
               href="https://leetcode.com/u/Ramu2772/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
-              <Code2 className="h-5 w-5 text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
+              <Code2 className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
-              <span className="font-medium text-white/80">
+              <span className="font-medium text-slate-700 dark:text-white/80">
                 LeetCode
               </span>
             </a>
@@ -249,15 +251,15 @@ export default function Hero() {
               href="https://drive.google.com/file/d/1YAN-ImP4zhP7X_WfnvwXo7sFDNRv5tHR/view"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/30 bg-cyan-400/10 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/20 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]"
+              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/30 bg-cyan-100 dark:bg-cyan-400/10 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/20 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]"
             >
-              <FileText className="h-5 w-5 text-cyan-200 transition-transform duration-300 group-hover:scale-110" />
+              <FileText className="h-5 w-5 text-cyan-700 dark:text-cyan-200 transition-transform duration-300 group-hover:scale-110" />
 
-              <span className="font-semibold text-cyan-100">
+              <span className="font-semibold text-black dark:text-cyan-100">
                 Resume
               </span>
 
-              <ArrowRight className="h-4 w-4 text-cyan-200 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 text-cyan-700 dark:text-cyan-200 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </motion.div>
         </motion.div>
@@ -284,7 +286,7 @@ export default function Hero() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative w-full max-w-[390px] overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.14)]"
+            className="relative w-full max-w-[390px] overflow-hidden rounded-[34px] border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.04] backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.14)]"
           >
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10" />
@@ -294,6 +296,7 @@ export default function Hero() {
 
             {/* Content */}
             <div className="relative z-10 p-8 md:p-10">
+              
               {/* Dots */}
               <div className="mb-10 flex gap-3">
                 <div className="h-3 w-3 rounded-full bg-red-400" />
@@ -303,35 +306,38 @@ export default function Hero() {
 
               {/* Code */}
               <div className="space-y-5 font-mono text-sm md:text-[15px]">
-                <p className="text-cyan-300">
+                
+                <p className="text-green-500 dark:text-cyan-300">
                   {"const developer = {"}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'name: "Ramu Siripalli",'}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'role: "Full Stack Developer",'}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'skills: ["React.js", "Node.js",'}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'"MongoDB", "TypeScript"],'}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'focus: "Scalable Web Apps",'}
                 </p>
 
-                <p className="ml-4 text-white/75">
+                <p className="ml-4 text-slate-700 dark:text-white/75">
                   {'passion: "Clean UI & Performance"'}
                 </p>
 
-                <p className="text-cyan-300">{"}"}</p>
+                <p className="text-green-500 dark:text-cyan-300">
+                  {"}"}
+                </p>
               </div>
             </div>
           </motion.div>

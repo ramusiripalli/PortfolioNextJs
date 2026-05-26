@@ -401,7 +401,7 @@ function TiltCard({
             className="h-1.5 w-1.5 rounded-full"
             style={{ backgroundColor: skill.color }}
           />
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-900 dark:text-white/30">
             {skill.category}
           </span>
         </div>
@@ -426,7 +426,7 @@ function TiltCard({
         </motion.div>
 
         {/* Name */}
-        <p className="text-sm font-semibold tracking-wide text-white/70 group-hover:text-white">
+        <p className="text-sm font-semibold tracking-wide text-slate-900 dark:text-white/70 group-hover:text-slate-900 dark:text-white">
           {skill.name}
         </p>
 
@@ -501,7 +501,7 @@ export default function Skills() {
             <div className="h-px w-16 bg-gradient-to-r from-cyan-400 to-transparent" />
           </div>
 
-          <h2 className="text-5xl font-black leading-none tracking-tight text-white md:text-6xl">
+          <h2 className="text-5xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-6xl">
             <span className="block">Technologies</span>
 
             <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent">
@@ -509,7 +509,7 @@ export default function Skills() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/40">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-900 dark:text-white/40">
             Crafting fast, scalable, and beautiful digital experiences
             with a full-stack mindset.
           </p>
@@ -533,7 +533,7 @@ export default function Skills() {
               >
                 <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
 
-                <span className="text-lg font-bold uppercase tracking-widest text-white/25">
+                <span className="text-lg font-bold uppercase tracking-widest text-slate-900 dark:text-white/25">
                   {tech}
                 </span>
               </div>

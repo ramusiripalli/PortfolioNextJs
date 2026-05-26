@@ -7,7 +7,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="bg-[#050816] text-white overflow-hidden">
+    <main className="overflow-hidden transition-colors duration-300">
       
       <Navbar />
       <Hero />

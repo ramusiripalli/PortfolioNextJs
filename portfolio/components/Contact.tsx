@@ -125,14 +125,14 @@ export default function Contact() {
             Contact
           </p>
 
-          <h2 className="text-5xl font-black tracking-tight text-white md:text-7xl">
+          <h2 className="text-5xl font-black tracking-tight text-slate-900 dark:text-white md:text-7xl">
             Let&apos;s
             <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
               {" "}Connect
             </span>
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-300/70">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-sgray-700 dark:text-gray-300/70">
             Open to internships, freelance opportunities,
             collaborations, and exciting software engineering projects.
           </p>
@@ -180,11 +180,11 @@ export default function Contact() {
 
             <div className="relative z-10">
 
-              <h3 className="mb-8 text-4xl font-bold text-white">
+              <h3 className="mb-8 text-4xl font-bold text-slate-900 dark:text-white">
                 Get In Touch
               </h3>
 
-              <p className="mb-10 leading-relaxed text-gray-300/70">
+              <p className="mb-10 leading-relaxed text-sgray-700 dark:text-gray-300/70">
                 I&apos;m passionate about building modern web applications,
                 solving real-world problems, and creating premium digital
                 experiences. Feel free to reach out anytime.
@@ -268,7 +268,7 @@ export default function Contact() {
 
                   </div>
 
-                  <h3 className="text-xl text-white">
+                  <h3 className="text-xl text-slate-900 dark:text-white">
                     Open for Freelancing & Full Time Opportunities
                   </h3>
 
@@ -313,7 +313,7 @@ function ContactCard({
           {title}
         </p>
 
-        <h3 className="break-all text-xl text-white">
+        <h3 className="break-all text-xl text-slate-900 dark:text-white">
           {value}
         </h3>
 

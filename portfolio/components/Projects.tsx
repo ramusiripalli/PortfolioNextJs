@@ -224,7 +224,7 @@ function ProjectCard({
         </p>
 
         {/* TITLE */}
-        <h3 className="mb-8 text-4xl font-black leading-tight text-white md:text-6xl">
+        <h3 className="mb-8 text-4xl font-black leading-tight text-slate-900 dark:text-white md:text-6xl">
           {project.title}
         </h3>
 
@@ -236,7 +236,7 @@ function ProjectCard({
           {/* INNER GLOW */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/[0.04] via-transparent to-teal-400/[0.04]" />
 
-          <p className="relative z-10 text-lg leading-relaxed text-white/65">
+          <p className="relative z-10 text-lg leading-relaxed text-slate-900 dark:text-white/65">
             {project.description}
           </p>
         </div>
@@ -349,7 +349,7 @@ export default function Projects() {
           </div>
 
           {/* MAIN HEADING */}
-          <h2 className="text-5xl font-black leading-none tracking-tight text-white md:text-7xl">
+          <h2 className="text-5xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-7xl">
             Modern
             <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
               Creative Builds
@@ -357,7 +357,7 @@ export default function Projects() {
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-white/55">
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-900 dark:text-white/55">
             Crafting immersive digital products with premium UI,
             scalable architecture, and seamless user experiences.
           </p>

@@ -1,3 +1,4 @@
+@custom-variant dark (&:where(.dark, .dark *));
 @import "tailwindcss";
 @import "@fontsource/inter";
 
@@ -5,30 +6,48 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: rgba(255, 255, 255, 0.8);
+  --border: rgba(15, 23, 42, 0.1);
+  --primary: #06b6d4;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #ffffff;
+  --card: rgba(0, 0, 0, 0.4);
+  --border: rgba(34, 211, 238, 0.1);
+  --primary: #22d3ee;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.1), transparent 30%),
+    var(--background);
+
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
   z-index: -1;
-}
-
-
-
-body {
-  background: radial-gradient(circle at top left, rgba(34,211,238,0.12), transparent 30%),
-  radial-gradient(circle at bottom right, rgba(45,212,191,0.10), transparent 30%),
-  #020617;
-  color: white;
-  overflow-x: hidden;
-  font-family: "Inter", sans-serif;
 }
 
 ::selection {
   background: #3b82f6;
   color: white;
 }
-

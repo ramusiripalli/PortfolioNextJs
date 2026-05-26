@@ -264,7 +264,7 @@ function ExperienceCard({
                 </div>
 
                 {/* ROLE */}
-                <h3 className="text-3xl font-black leading-tight text-white">
+                <h3 className="text-3xl font-black leading-tight text-slate-900 dark:text-white">
                   {exp.role}
                 </h3>
 
@@ -275,7 +275,7 @@ function ExperienceCard({
               </div>
 
               {/* PERIOD */}
-              <span className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm tracking-[0.25em] text-white/50 backdrop-blur-xl">
+              <span className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm tracking-[0.25em] text-slate-900 dark:text-white/50 backdrop-blur-xl">
                 {exp.period}
               </span>
             </div>
@@ -285,7 +285,7 @@ function ExperienceCard({
               {exp.points.map((point, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-4 text-[15px] leading-8 text-white/60"
+                  className="flex items-start gap-4 text-[15px] leading-8 text-slate-900 dark:text-white/60"
                 >
                   <span className="mt-3 h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_#22d3ee]" />
 
@@ -345,7 +345,7 @@ export default function Experience() {
           </div>
 
           {/* TITLE */}
-          <h2 className="text-6xl font-black leading-none tracking-tight text-white md:text-8xl">
+          <h2 className="text-6xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-8xl">
             Work
             <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
               Experience
@@ -353,7 +353,7 @@ export default function Experience() {
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-white/55">
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-900 dark:text-white/55">
             Building scalable applications, crafting premium user
             experiences, and solving real-world engineering problems.
           </p>
@@ -420,12 +420,12 @@ export default function Experience() {
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-3xl font-black text-white">
+                <h3 className="text-3xl font-black text-slate-900 dark:text-white">
                   B.Tech in Computer Science Engineering
                 </h3>
 
                 {/* COLLEGE */}
-                <p className="mt-4 text-lg text-white/60">
+                <p className="mt-4 text-lg text-slate-900 dark:text-white/60">
                   Lovely Professional University
                 </p>
               </div>
