@@ -71,7 +71,7 @@ const skills: Skill[] = [
   {
     name: "Express.js",
     icon: <SiExpress />,
-    color: "#FFFFFF",
+    color: "#00D8FF",
     category: "Backend",
   },
   {
@@ -146,15 +146,10 @@ const movingSkills = [
 
 const STARS = Array.from({ length: 45 }, (_, i) => ({
   id: i,
-
   size: (i % 2) + 1,
-
   left: (i * 23) % 100,
-
   top: (i * 17) % 100,
-
   duration: 8 + (i % 5),
-
   delay: i * 0.3,
 }));
 
@@ -181,10 +176,10 @@ function StarsBackground() {
       {STARS.map((star) => (
         <motion.div
           key={star.id}
-          className="absolute rounded-full bg-white"
+          className="absolute rounded-full bg-black dark:bg-white"
           style={{
-            width: star.size + 1.5,
-            height: star.size + 1.5,
+            width: star.size + 2,
+            height: star.size + 2,
             left: `${star.left}%`,
             top: `${star.top}%`,
             opacity: 0.35,
@@ -210,6 +205,7 @@ function StarsBackground() {
     </div>
   );
 }
+
 // ─────────────────────────────────────────────────────────────
 // PARTICLES
 // ─────────────────────────────────────────────────────────────
@@ -220,7 +216,7 @@ function ParticleField() {
       {PARTICLES.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-cyan-300"
+          className="absolute rounded-full bg-cyan-400 dark:bg-cyan-300"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
@@ -284,7 +280,7 @@ function MouseSpotlight() {
       style={{
         background: `radial-gradient(
           ellipse 60% 50% at ${pos.x}% ${pos.y}%,
-          rgba(6,182,212,0.15) 0%,
+          rgba(6,182,212,0.06) 0%,
           transparent 70%
         )`,
       }}
@@ -377,14 +373,15 @@ function TiltCard({
 
       {/* Card */}
       <div
-        className="relative overflow-hidden rounded-2xl border bg-[#080C14] p-6 transition-all duration-300"
+        className="relative overflow-hidden rounded-2xl border border-slate-900 dark:border-white/10 bg-white/90 dark:bg-[#080C14] p-6 transition-all duration-300 backdrop-blur-xl"
         style={{
           borderColor: hovered
             ? `${skill.color}60`
-            : "rgba(255,255,255,0.08)",
+            : "rgba(203,213,225,0.6)",
+
           boxShadow: hovered
             ? `0 0 40px ${skill.color}30`
-            : "0 4px 20px rgba(0,0,0,0.4)",
+            : "0 8px 30px rgba(15,23,42,0.08)",
         }}
       >
         {/* Top accent */}
@@ -401,7 +398,8 @@ function TiltCard({
             className="h-1.5 w-1.5 rounded-full"
             style={{ backgroundColor: skill.color }}
           />
-          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-900 dark:text-white/30">
+
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 dark:text-white/30">
             {skill.category}
           </span>
         </div>
@@ -426,7 +424,7 @@ function TiltCard({
         </motion.div>
 
         {/* Name */}
-        <p className="text-sm font-semibold tracking-wide text-slate-900 dark:text-white/70 group-hover:text-slate-900 dark:text-white">
+        <p className="text-sm font-semibold tracking-wide text-slate-700 dark:text-white/70 group-hover:text-cyan-600 dark:group-hover:text-white">
           {skill.name}
         </p>
 
@@ -452,27 +450,30 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen overflow-hidden px-6 py-32"
+      className="relative min-h-screen overflow-hidden px-6 py-32 transition-colors duration-500"
       style={{
         fontFamily: "'Sora', sans-serif",
       }}
     >
       {/* BACKGROUND */}
-      <div className="absolute inset-0  bg-[#04080F]">
+      <div className="absolute inset-0 bg-slate-100 dark:bg-[#04080F] transition-colors duration-500">
+        
         <MouseSpotlight />
 
         <StarsBackground />
-       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.06),transparent_55%)]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.06),transparent_55%)]" />
+
         <ParticleField />
 
         {/* Blur blobs */}
-        <div className="absolute -left-40 top-10 h-[600px] w-[600px] rounded-full bg-cyan-500/[0.08] blur-[120px]" />
+        <div className="absolute -left-40 top-10 h-[600px] w-[600px] rounded-full bg-cyan-400/[0.05] dark:bg-cyan-500/[0.08] blur-[120px]" />
 
-        <div className="absolute -right-40 bottom-10 h-[500px] w-[500px] rounded-full bg-teal-400/[0.08] blur-[100px]" />
+        <div className="absolute -right-40 bottom-10 h-[500px] w-[500px] rounded-full bg-teal-300/[0.05] dark:bg-teal-400/[0.08] blur-[100px]" />
 
         {/* Grid */}
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
           style={{
             backgroundImage:
               "radial-gradient(circle, rgba(6,182,212,0.4) 1px, transparent 1px)",
@@ -483,6 +484,7 @@ export default function Skills() {
 
       {/* CONTENT */}
       <div className="relative mx-auto max-w-7xl">
+        
         {/* HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -494,7 +496,7 @@ export default function Skills() {
           <div className="mb-6 flex items-center justify-center gap-3">
             <div className="h-px w-16 bg-gradient-to-l from-cyan-400 to-transparent" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400">
+            <span className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-500">
               My Arsenal
             </span>
 
@@ -504,12 +506,12 @@ export default function Skills() {
           <h2 className="text-5xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-6xl">
             <span className="block">Technologies</span>
 
-            <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 bg-clip-text text-transparent">
               &amp; Tools
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-900 dark:text-white/40">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-white/40">
             Crafting fast, scalable, and beautiful digital experiences
             with a full-stack mindset.
           </p>
@@ -533,7 +535,7 @@ export default function Skills() {
               >
                 <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
 
-                <span className="text-lg font-bold uppercase tracking-widest text-slate-900 dark:text-white/25">
+                <span className="text-lg font-bold uppercase tracking-widest text-slate-500 dark:text-white/25">
                   {tech}
                 </span>
               </div>
