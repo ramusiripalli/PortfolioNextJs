@@ -249,7 +249,7 @@ export default function Contact() {
                   </div>
 
                   <h3 className="text-xl text-white">
-                    Open for Internships, Freelancing & Full Time
+                    Open for Freelancing & Full Time
                   </h3>
 
                 </motion.div>
