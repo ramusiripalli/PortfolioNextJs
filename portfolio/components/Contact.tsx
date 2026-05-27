@@ -33,17 +33,17 @@ export default function Contact() {
 
       {/* ================= BACKGROUND ================= */}
 
-      <div className="absolute inset-0 -z-30 bg-[#020617]" />
+      <div className="absolute inset-0 -z-30 bg-slate-50 dark:bg-[#020617] transition-colors duration-500" />
 
       {/* Grid */}
-      <div className="absolute inset-0 -z-20 opacity-40 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
+      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-40 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
 
       {/* Aurora Glow */}
-      <div className="absolute left-1/2 top-0 -z-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[140px] animate-pulse" />
+      <div className="absolute left-1/2 top-0 -z-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/[0.06] dark:bg-cyan-500/10 blur-[140px] animate-pulse" />
 
-      <div className="absolute bottom-0 left-0 -z-20 h-[400px] w-[400px] rounded-full bg-teal-400/10 blur-[120px]" />
+      <div className="absolute bottom-0 left-0 -z-20 h-[400px] w-[400px] rounded-full bg-teal-300/[0.06] dark:bg-teal-400/10 blur-[120px]" />
 
-      <div className="absolute right-0 top-1/2 -z-20 h-[400px] w-[400px] rounded-full bg-sky-400/10 blur-[120px]" />
+      <div className="absolute right-0 top-1/2 -z-20 h-[400px] w-[400px] rounded-full bg-sky-300/[0.06] dark:bg-sky-400/10 blur-[120px]" />
 
       {/* Floating Orbs */}
 
@@ -55,7 +55,7 @@ export default function Contact() {
           duration: 6,
           repeat: Infinity,
         }}
-        className="absolute left-20 top-32 -z-10 h-32 w-32 rounded-full bg-cyan-400/20 blur-3xl"
+        className="absolute left-20 top-32 -z-10 h-32 w-32 rounded-full bg-cyan-400/10 dark:bg-cyan-400/20 blur-3xl"
       />
 
       <motion.div
@@ -66,7 +66,7 @@ export default function Contact() {
           duration: 8,
           repeat: Infinity,
         }}
-        className="absolute bottom-20 right-20 -z-10 h-40 w-40 rounded-full bg-teal-400/20 blur-3xl"
+        className="absolute bottom-20 right-20 -z-10 h-40 w-40 rounded-full bg-teal-300/10 dark:bg-teal-400/20 blur-3xl"
       />
 
       {/* ================= PREMIUM STARS ================= */}
@@ -85,17 +85,17 @@ export default function Contact() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute rounded-full bg-white"
+            className="absolute rounded-full bg-slate-700 dark:bg-white"
             style={{
-              width: `${star.size}px`,
-              height: `${star.size}px`,
+              width: `${star.size+2}px`,
+              height: `${star.size+2}px`,
               top: `${star.top}%`,
               left: `${star.left}%`,
               opacity: star.opacity,
               boxShadow: `
                 0 0 8px rgba(255,255,255,0.9),
-                0 0 18px rgba(34,211,238,0.7),
-                0 0 30px rgba(34,211,238,0.5)
+                0 0 18px rgba(34,211,238,0.4),
+                0 0 30px rgba(34,211,238,0.2)
               `,
             }}
           />
@@ -121,18 +121,18 @@ export default function Contact() {
           className="mb-24 text-center"
         >
 
-          <p className="mb-6 text-sm uppercase tracking-[0.5em] text-cyan-300">
+          <p className="mb-6 text-sm uppercase tracking-[0.5em] text-cyan-500 dark:text-cyan-300">
             Contact
           </p>
 
           <h2 className="text-5xl font-black tracking-tight text-slate-900 dark:text-white md:text-7xl">
             Let&apos;s
-            <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 bg-clip-text text-transparent">
               {" "}Connect
             </span>
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-sgray-700 dark:text-gray-300/70">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-gray-300/70">
             Open to internships, freelance opportunities,
             collaborations, and exciting software engineering projects.
           </p>
@@ -151,14 +151,14 @@ export default function Contact() {
             duration: 1,
           }}
           viewport={{ once: true }}
-          className="group relative z-10 overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.04] p-8 shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-3xl md:p-14"
+          className="group relative z-10 overflow-hidden rounded-[40px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/[0.04] p-8 shadow-[0_8px_50px_rgba(15,23,42,0.08)] dark:shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-3xl transition-all duration-500 md:p-14"
         >
 
           {/* Border Glow */}
-          <div className="absolute inset-0 rounded-[40px] border border-cyan-400/20" />
+          <div className="absolute inset-0 rounded-[40px] border border-cyan-400/10 dark:border-cyan-400/20" />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-teal-400/10 opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/[0.04] via-transparent to-teal-400/[0.04] dark:from-cyan-400/10 dark:to-teal-400/10 opacity-80" />
 
           {/* Moving Light */}
 
@@ -171,7 +171,7 @@ export default function Contact() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute top-0 h-full w-32 rotate-12 bg-white/10 blur-3xl"
+            className="absolute top-0 h-full w-32 rotate-12 bg-white/40 dark:bg-white/10 blur-3xl"
           />
 
           <div className="grid gap-14 lg:grid-cols-2">
@@ -184,7 +184,7 @@ export default function Contact() {
                 Get In Touch
               </h3>
 
-              <p className="mb-10 leading-relaxed text-sgray-700 dark:text-gray-300/70">
+              <p className="mb-10 leading-relaxed text-slate-600 dark:text-gray-300/70">
                 I&apos;m passionate about building modern web applications,
                 solving real-world problems, and creating premium digital
                 experiences. Feel free to reach out anytime.
@@ -203,7 +203,7 @@ export default function Contact() {
                   }}
                   href="https://github.com/ramusiripalli"
                   target="_blank"
-                  className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-3xl text-cyan-300 backdrop-blur-2xl transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:shadow-[0_0_50px_rgba(34,211,238,0.3)]"
+                  className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-3xl text-cyan-600 dark:text-cyan-300 backdrop-blur-2xl shadow-sm transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:shadow-[0_0_50px_rgba(34,211,238,0.2)]"
                 >
                   <FaGithub className="transition duration-300 group-hover:rotate-12" />
                 </motion.a>
@@ -217,7 +217,7 @@ export default function Contact() {
                   }}
                   href="https://www.linkedin.com/in/ramu-siripalli-3711bb119/"
                   target="_blank"
-                  className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-3xl text-cyan-300 backdrop-blur-2xl transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:shadow-[0_0_50px_rgba(34,211,238,0.3)]"
+                  className="group flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-3xl text-cyan-600 dark:text-cyan-300 backdrop-blur-2xl shadow-sm transition duration-300 hover:border-cyan-400/40 hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:shadow-[0_0_50px_rgba(34,211,238,0.2)]"
                 >
                   <FaLinkedin className="transition duration-300 group-hover:rotate-12" />
                 </motion.a>
@@ -255,14 +255,14 @@ export default function Contact() {
                   whileHover={{
                     y: -5,
                   }}
-                  className="rounded-3xl border border-cyan-400/20 bg-cyan-400/5 p-6 backdrop-blur-2xl transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]"
+                  className="rounded-3xl border border-cyan-200 dark:border-cyan-400/20 bg-cyan-50 dark:bg-cyan-400/5 p-6 backdrop-blur-2xl transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]"
                 >
 
                   <div className="mb-3 flex items-center gap-3">
 
                     <div className="h-3 w-3 animate-pulse rounded-full bg-green-400" />
 
-                    <p className="text-sm uppercase tracking-[0.2em] text-cyan-300">
+                    <p className="text-sm uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300">
                       Availability
                     </p>
 
@@ -300,16 +300,16 @@ function ContactCard({
       whileHover={{
         y: -5,
       }}
-      className="group flex items-start gap-5 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-2xl transition duration-300 hover:border-cyan-400/30 hover:bg-cyan-400/5 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]"
+      className="group flex items-start gap-5 rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 backdrop-blur-2xl shadow-sm transition duration-300 hover:border-cyan-400/30 hover:bg-cyan-50 dark:hover:bg-cyan-400/5 hover:shadow-[0_0_40px_rgba(34,211,238,0.12)]"
     >
 
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-300 transition duration-300 group-hover:scale-110 group-hover:rotate-6">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100 dark:bg-cyan-400/10 text-2xl text-cyan-600 dark:text-cyan-300 transition duration-300 group-hover:scale-110 group-hover:rotate-6">
         {icon}
       </div>
 
       <div>
 
-        <p className="mb-2 text-sm uppercase tracking-[0.2em] text-cyan-300">
+        <p className="mb-2 text-sm uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300">
           {title}
         </p>
 
