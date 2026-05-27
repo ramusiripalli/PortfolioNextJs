@@ -39,7 +39,7 @@ export default function Contact() {
       <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-40 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
 
       {/* Aurora Glow */}
-      <div className="absolute left-1/2 top-0 -z-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/[0.06] dark:bg-cyan-500/10 blur-[140px] animate-pulse" />
+      <div className="absolute left-1/2 top-0 -z-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/[0.06] dark:bg-cyan-500/10 blur-[80px] animate-pulse" />
 
       <div className="absolute bottom-0 left-0 -z-20 h-[400px] w-[400px] rounded-full bg-teal-300/[0.06] dark:bg-teal-400/10 blur-[120px]" />
 
@@ -151,7 +151,7 @@ export default function Contact() {
             duration: 1,
           }}
           viewport={{ once: true }}
-          className="group relative z-10 overflow-hidden rounded-[40px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/[0.04] p-8 shadow-[0_8px_50px_rgba(15,23,42,0.08)] dark:shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-3xl transition-all duration-500 md:p-14"
+          className="group relative z-10 overflow-hidden rounded-[40px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/[0.04] p-8 shadow-[0_8px_50px_rgba(15,23,42,0.08)] dark:shadow-[0_0_80px_rgba(34,211,238,0.08)] backdrop-blur-xl transition-all duration-500 md:p-14"
         >
 
           {/* Border Glow */}

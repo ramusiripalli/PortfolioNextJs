@@ -26,19 +26,19 @@ export default function Navbar() {
       initial={false}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-4"
+      className="fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-3"
     >
       <div className="mx-auto max-w-7xl">
         
         {/* Navbar Container */}
-        <div className="flex items-center justify-between rounded-2xl border border-red-300 dark:border-cyan-400/10 bg-white/80 dark:bg-black/30 backdrop-blur-xl px-5 py-4 shadow-[0_0_40px_rgba(34,211,238,0.10)] transition-all duration-300">
+        <div className="flex items-center justify-between rounded-2xl border border-cyan-300 dark:border-cyan-400/10 bg-white/80 dark:bg-black/30 backdrop-blur-xl px-5 py-4 shadow-[0_0_40px_rgba(34,211,238,0.10)] transition-all duration-300">
           
           {/* Logo */}
           <h1 className="text-xl md:text-3xl font-bold tracking-tight">
             <span className="text-slate-900 dark:text-white">
               Ramu
             </span>{" "}
-            <span className="text-red-400 dark:text-cyan-400">
+            <span className="bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent">
               Siripalli
             </span>
           </h1>

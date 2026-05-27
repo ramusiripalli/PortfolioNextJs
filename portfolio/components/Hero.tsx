@@ -16,7 +16,7 @@ import {
 // STARS DATA
 // ─────────────────────────────────────────────────────────────
 
-const STARS = Array.from({ length: 50 }, (_, i) => ({
+const STARS = Array.from({ length: 25 }, (_, i) => ({
   id: i,
   size: (i % 2) + 1,
   left: (i * 19) % 100,
@@ -35,7 +35,7 @@ function StarsBackground() {
       {STARS.map((star) => (
         <motion.div
           key={star.id}
-          className="absolute rounded-full bg-black dark:bg-white"
+          className="absolute rounded-full bg-slate-700 dark:bg-white"
           style={{
             width: star.size + 2,
             height: star.size + 2,
@@ -149,11 +149,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-green-400 dark:bg-cyan-400/5 px-5 py-2 backdrop-blur-xl"
+            className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-200 bg-cyan-50  dark:bg-cyan-400/5 px-5 py-2 backdrop-blur-xl"
           >
             <Sparkles className="h-4 w-4 text-pink-500 dark:text-cyan-300" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-black dark:text-cyan-300">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600 dark:text-cyan-300">
               Available For Work
             </span>
           </motion.div>
@@ -209,7 +209,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/ramu-siripalli-3711bb119/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
               <Link className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
@@ -223,7 +223,7 @@ export default function Hero() {
               href="https://github.com/ramusiripalli"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
               <GitBranch className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
@@ -237,7 +237,7 @@ export default function Hero() {
               href="https://leetcode.com/u/Ramu2772/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
+              className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]"
             >
               <Code2 className="h-5 w-5 text-cyan-500 dark:text-cyan-300 transition-transform duration-300 group-hover:scale-110" />
 
@@ -251,7 +251,7 @@ export default function Hero() {
               href="https://drive.google.com/file/d/1YAN-ImP4zhP7X_WfnvwXo7sFDNRv5tHR/view"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/30 bg-cyan-100 dark:bg-cyan-400/10 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/20 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]"
+              className="group flex items-center gap-3 rounded-2xl border border-cyan-400/30 bg-cyan-100 dark:bg-cyan-400/10 px-6 py-3 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-400/10 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)]"
             >
               <FileText className="h-5 w-5 text-cyan-700 dark:text-cyan-200 transition-transform duration-300 group-hover:scale-110" />
 
