@@ -45,6 +45,7 @@ const ORBS = Array.from({ length: 7 }, (_, i) => ({
 function AuroraBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      
       {/* ORBS */}
       {ORBS.map((orb) => (
         <motion.div
@@ -74,7 +75,7 @@ function AuroraBackground() {
 
       {/* GRID */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
@@ -95,7 +96,7 @@ function AuroraBackground() {
       />
 
       {/* VIGNETTE */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.9)_100%)]" />
+      <div className="absolute inset-0 dark:bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.9)_100%)]" />
     </div>
   );
 }
@@ -163,7 +164,8 @@ function ProjectCard({
         />
 
         {/* MAIN CARD */}
-        <div className="group relative overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.04] backdrop-blur-2xl shadow-[0_0_80px_rgba(34,211,238,0.12)]">
+        <div className="group relative overflow-hidden rounded-[36px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/[0.04] backdrop-blur-2xl shadow-[0_10px_50px_rgba(15,23,42,0.08)] dark:shadow-[0_0_80px_rgba(34,211,238,0.12)] transition-all duration-500">
+          
           {/* SHINE */}
           <motion.div
             animate={{
@@ -178,7 +180,7 @@ function ProjectCard({
           />
 
           {/* OVERLAY */}
-          <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#020617]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-900/70 dark:from-[#020617]/80 via-transparent to-transparent" />
 
           {/* IMAGE */}
           <Image
@@ -190,8 +192,9 @@ function ProjectCard({
           />
 
           {/* LABEL */}
-          <div className="absolute left-6 top-6 z-30 rounded-full border border-cyan-400/20 bg-[#020617]/70 px-5 py-2 backdrop-blur-xl">
-            <span className="text-xs font-bold uppercase tracking-[0.35em] text-cyan-300">
+          <div className="absolute left-6 top-6 z-30 rounded-full border border-cyan-400/20 bg-white/80 dark:bg-[#020617]/70 px-5 py-2 backdrop-blur-xl">
+            
+            <span className="text-xs font-bold uppercase tracking-[0.35em] text-cyan-600 dark:text-cyan-300">
               Featured Project
             </span>
           </div>
@@ -219,7 +222,7 @@ function ProjectCard({
         }`}
       >
         {/* TOP LABEL */}
-        <p className="mb-5 text-sm font-bold uppercase tracking-[0.45em] text-cyan-300">
+        <p className="mb-5 text-sm font-bold uppercase tracking-[0.45em] text-cyan-500 dark:text-cyan-300">
           Full Stack Experience
         </p>
 
@@ -229,14 +232,15 @@ function ProjectCard({
         </h3>
 
         {/* DESCRIPTION */}
-        <div className="relative mb-10 overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-2xl">
+        <div className="relative mb-10 overflow-hidden rounded-[32px] border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/[0.04] p-8 backdrop-blur-2xl shadow-[0_8px_40px_rgba(15,23,42,0.06)] dark:shadow-none transition-all duration-500">
+          
           {/* SIDE LINE */}
           <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-cyan-400 to-teal-400" />
 
           {/* INNER GLOW */}
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/[0.04] via-transparent to-teal-400/[0.04]" />
 
-          <p className="relative z-10 text-lg leading-relaxed text-slate-900 dark:text-white/65">
+          <p className="relative z-10 text-lg leading-relaxed text-slate-600 dark:text-white/65">
             {project.description}
           </p>
         </div>
@@ -250,9 +254,9 @@ function ProjectCard({
                 y: -5,
                 scale: 1.05,
               }}
-              className="rounded-full border border-cyan-400/15 bg-white/[0.04] px-5 py-3 backdrop-blur-xl"
+              className="rounded-full border border-slate-200 dark:border-cyan-400/15 bg-white dark:bg-white/[0.04] px-5 py-3 backdrop-blur-xl shadow-sm transition-all duration-300 hover:shadow-md"
             >
-              <span className="text-md font-medium text-cyan-400">
+              <span className="text-md font-medium text-cyan-600 dark:text-cyan-400">
                 {tech}
               </span>
             </motion.div>
@@ -261,6 +265,7 @@ function ProjectCard({
 
         {/* BUTTONS */}
         <div className="flex flex-wrap gap-5">
+          
           {/* LIVE DEMO */}
           <motion.a
             whileHover={{
@@ -292,7 +297,7 @@ function ProjectCard({
             href={project.gitHubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-white/[0.04] px-8 py-4 text-cyan-200 backdrop-blur-xl transition hover:border-cyan-300 hover:bg-cyan-400/[0.06]"
+            className="group flex items-center gap-3 rounded-2xl border border-slate-200 dark:border-cyan-400/20 bg-white dark:bg-white/[0.04] px-8 py-4 text-cyan-700 dark:text-cyan-200 backdrop-blur-xl shadow-sm transition-all duration-300 hover:border-cyan-300 hover:bg-cyan-50 dark:hover:bg-cyan-400/[0.06] hover:shadow-md"
           >
             <FaGithub className="text-lg transition duration-300 group-hover:rotate-12" />
 
@@ -315,12 +320,13 @@ export default function Projects() {
       className="relative overflow-hidden px-6 py-40"
     >
       {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-[#020617]">
+      <div className="absolute inset-0 bg-slate-50 dark:bg-[#020617] transition-colors duration-500">
         <AuroraBackground />
       </div>
 
       {/* CONTENT */}
       <div className="relative mx-auto max-w-7xl">
+        
         {/* HEADING */}
         <motion.div
           initial={{
@@ -341,7 +347,7 @@ export default function Projects() {
           <div className="mb-8 flex items-center justify-center gap-4">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-cyan-400" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.5em] text-cyan-300">
+            <span className="text-xs font-bold uppercase tracking-[0.5em] text-cyan-500 dark:text-cyan-300">
               Premium Projects
             </span>
 
@@ -351,13 +357,14 @@ export default function Projects() {
           {/* MAIN HEADING */}
           <h2 className="text-5xl font-black leading-none tracking-tight text-slate-900 dark:text-white md:text-7xl">
             Modern
-            <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-teal-300 bg-clip-text text-transparent">
+
+            <span className="block bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 bg-clip-text text-transparent">
               Creative Builds
             </span>
           </h2>
 
           {/* DESCRIPTION */}
-          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-900 dark:text-white/55">
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-white/55">
             Crafting immersive digital products with premium UI,
             scalable architecture, and seamless user experiences.
           </p>
